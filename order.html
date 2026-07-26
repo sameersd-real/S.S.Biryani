@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="order.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- https://wa.me/919866029991?text=Hello%2C%20I%20want%20to%20buy%20a%20Biryani -->
+  <a href="index.html" class="back-arrow"><span class="material-icons">arrow_back</span> Go Back</a>
+  <div class="order-box">
+    <div class="logo"></div>
+    <select id="biryani">
+      <option>Chicken Biryani</option>
+      <option>Mutton Biryani</option>
+      <option>Veg Biryani</option>
+    </select>
+    <select id="qty">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+    <!-- <button onclick="updateWhatsAppLink()">Order</button> -->
+    <a id="whatsapp" target="_blank">Order on WhatsApp</a>
+  </div>
+<script>
+    function updateWhatsAppLink() {
+      const biryani = document.getElementById("biryani").value;
+      const qty = document.getElementById("qty").value;
+      const message = `Hello, I want to order ${qty} ${biryani}.`;
+      const url = `https://wa.me/919866029991?text=${encodeURIComponent(message)}`;
+      document.getElementById("whatsapp").href = url;
+    }
+    document.getElementById("biryani").addEventListener("change", updateWhatsAppLink);
+    document.getElementById("qty").addEventListener("change", updateWhatsAppLink);
+    updateWhatsAppLink();
+</script>
+</body>
+</html>
